@@ -2,14 +2,9 @@ package com.neural.PerformanceGrading.repository;
 
 import com.neural.PerformanceGrading.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -27,17 +22,19 @@ public class StudentRepository {
     }
 
     public void save(Student student) {
-        String query = "INSERT INTO students (id, name, marks) VALUES (?, ?, ?)";
-        int rows = jdbc.update(query, student.getId(), student.getName(), student.getMarks());
-        System.out.println("Inserted: " + rows);
-
+        String insertQuery = "INSERT INTO students (id, name, marks) VALUES (?, ?, ?)";
+        String deleteQuery = "DELETE FROM students WHERE id = ?";
+        int deleteSuccess = jdbc.update(deleteQuery, student.getId());
+        int insertSuccess = jdbc.update(insertQuery, student.getId(), student.getName(), student.getMarks());
+        System.out.println("Deleted: " + deleteSuccess);
+        System.out.println("Inserted: " + insertSuccess);
         System.out.println("Saving student: " + student);
     }
 
     public List<Student> findAll() {
-        String query = "SELECT * FROM students";
+        String query = "SELECT * FROM students limit 100";
 
-        return jdbc.query(query, (rs, rowNum) -> {
+        return jdbc.query(query, (rs, rownum) -> {
                     Student student = new Student();
                     student.setId(rs.getInt("id"));
                     student.setName(rs.getString("name"));
