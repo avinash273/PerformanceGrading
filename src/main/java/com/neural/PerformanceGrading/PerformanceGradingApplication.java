@@ -17,7 +17,7 @@ public class PerformanceGradingApplication {
 		Student s1 = context.getBean(Student.class);
 
 		s1.setId(1001);
-		s1.setName("John Doe");
+		s1.setName("Steph");
 		s1.setMarks(98);
 
 		service.addStudent(s1);

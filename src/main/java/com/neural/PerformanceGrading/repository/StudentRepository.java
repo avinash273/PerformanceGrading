@@ -24,10 +24,13 @@ public class StudentRepository {
     public void save(Student student) {
         String insertQuery = "INSERT INTO students (id, name, marks) VALUES (?, ?, ?)";
         String deleteQuery = "DELETE FROM students WHERE id = ?";
+        String updateQuery = "UPDATE students SET name = ? WHERE id = ?";
         int deleteSuccess = jdbc.update(deleteQuery, student.getId());
         int insertSuccess = jdbc.update(insertQuery, student.getId(), student.getName(), student.getMarks());
+        int updateSuccess = jdbc.update(updateQuery, "avinash", student.getId());
         System.out.println("Deleted: " + deleteSuccess);
         System.out.println("Inserted: " + insertSuccess);
+        System.out.println("updateSuccess: " + updateSuccess);
         System.out.println("Saving student: " + student);
     }
 
