@@ -3,6 +3,7 @@ package com.neural.PerformanceGrading.model;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+//Model
 @Component
 @Scope("prototype")
 public class Student {

@@ -25,7 +25,6 @@ public class PerformanceGradingApplication {
 		List<Student> students = service.getStudents();
 		students.forEach(System.out::println);
 
-
 	}
 
 }

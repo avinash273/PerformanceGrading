@@ -998,3 +998,4 @@ insert into students (id, name, marks) values (997, 'Ingar', 92);
 insert into students (id, name, marks) values (998, 'Aldric', 85);
 insert into students (id, name, marks) values (999, 'Nyssa', 24);
 insert into students (id, name, marks) values (1000, 'Silas', 97);
+insert into students (id, name, marks) values (1000, 'Rames', 32);
