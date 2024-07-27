@@ -25,6 +25,10 @@ public class PerformanceGradingApplication {
 		List<Student> students = service.getStudents();
 		students.forEach(System.out::println);
 
+		for (int i = 0; i < 100; i++) {
+			System.out.println("*");
+		}
+
 	}
 
 }
