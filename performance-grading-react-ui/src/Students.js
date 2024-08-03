@@ -1,34 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-   function Students() {
-     const [data, setData] = useState([]);
+function Students() {
+    const [data, setData] = useState([]);
 
-     useEffect(() => {
-       const fetchData = async () => {
-         try {
-           const response = await axios.get('http://localhost:8080/app/test');
-           setData(response.data);
-         } catch (error) {
-           console.error('Error fetching data:', error);
-         }
-       };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/app/test');
+                setData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
 
-       fetchData();
-     }, []);
+        fetchData();
+    }, []);
 
-     return (
-       <>
-         {/* Render the data here */}
-         {data.map(item => (
-            <>
-            <div key={item.id}>{item.id}</div>
-            <div key={item.id}>{item.name}</div>
-            <div key={item.id}>{item.marks}</div>
-            </>
-         ))}
-       </>
-     );
-   }
+    return (
+        <>
+            <h1>Students Data</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.map(item => (
 
-   export default Students;
+                    <tr key={item.id}>
+                        <td>{item.name}</td>
+                        <td>{item.marks}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </>
+    );
+}
+
+export default Students;
