@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 //Model
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class Student {
     private int id;
     private String name;
