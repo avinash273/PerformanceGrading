@@ -1,5 +1,6 @@
 import TodoRowItem from './TodoRowItem';
 import React, {useState, useEffect} from "react";
+import AddTodo from './AddTodo';
 
 function TodoTable() {
 
@@ -10,13 +11,13 @@ function TodoTable() {
     {rowNumber : 4, rowDescription : 'Go to office', rowAssigned : 'user 4'}
   ]);
 
-    const addTodo = () => {
-        console.log(todos);
-        if(todos.length > 0){
+    const addTodo = (description, assigned) => {
+      let rowNumber = 0;
+      if(todos.length > 0){
             const newTodo = {
                 rowNumber : todos.length + 1,
-                rowDescription : 'New Todo' + (todos.length + 1),
-                rowAssigned : 'user ' + (todos.length + 1)
+                rowDescription : description,
+                rowAssigned : assigned
             }
             setTodos(todos => [...todos, newTodo])
         }
@@ -42,6 +43,7 @@ function TodoTable() {
                 {
                   todos.map(task => (
                     <TodoRowItem
+                    key = {todos.rowNumber}
                     rowNumber = {task.rowNumber}
                     rowDescription = {task.rowDescription}
                     rowAssigned = {task.rowAssigned}
@@ -49,8 +51,7 @@ function TodoTable() {
                   ))
                 }
 
-                <button className='btn btn-primary' onClick={addTodo}>Add new todo</button>
-
+                <AddTodo addTodo={addTodo}/>
               </tbody>
             </table>
           </div>
