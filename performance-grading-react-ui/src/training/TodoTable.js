@@ -20,7 +20,7 @@ function TodoTable() {
             todos.push(newTodo);
         }
 
-        console.log(todos);
+        // console.log(todos);
     }
     return(
         <>
