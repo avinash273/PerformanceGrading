@@ -26,6 +26,14 @@ function TodoTable() {
         }
         setTodos(todos => [...todos, newTodo])
     }
+
+    const deleteTodo = (deleteTodoRowNumber) => {
+        let filtered = todos.filter(function(value) {
+            return value.rowNumber !== deleteTodoRowNumber;
+        });
+        setTodos(filtered);
+    }
+
     return (
         <>
             <div className='mt-5 container'>
@@ -48,6 +56,7 @@ function TodoTable() {
                                     rowNumber={task.rowNumber}
                                     rowDescription={task.rowDescription}
                                     rowAssigned={task.rowAssigned}
+                                    deleteTodo={deleteTodo}
                                 />
                             ))
                         }
