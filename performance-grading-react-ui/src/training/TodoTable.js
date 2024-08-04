@@ -4,62 +4,61 @@ import AddTodo from './AddTodo';
 
 function TodoTable() {
 
-  const [todos, setTodos] = useState([
-    {rowNumber : 1, rowDescription : 'Wake up', rowAssigned : 'user 1'},
-    {rowNumber : 2, rowDescription : 'Brush', rowAssigned : 'user 2'},
-    {rowNumber : 3, rowDescription : 'Eat breakfast', rowAssigned : 'user 3'},
-    {rowNumber : 4, rowDescription : 'Go to office', rowAssigned : 'user 4'}
-  ]);
+    const [todos, setTodos] = useState([
+        {rowNumber: 1, rowDescription: 'Wake up', rowAssigned: 'user 1'},
+        {rowNumber: 2, rowDescription: 'Brush', rowAssigned: 'user 2'},
+        {rowNumber: 3, rowDescription: 'Eat breakfast', rowAssigned: 'user 3'},
+        {rowNumber: 4, rowDescription: 'Go to office', rowAssigned: 'user 4'}
+    ]);
 
     const addTodo = (description, assigned) => {
-      let rowNumber = 0;
-      if(todos.length > 0){
-        rowNumber = todos[todos.length - 1].rowNumber + 1;
-      }
-      else{
-        rowNumber = 1;
+        let rowNumber = 0;
+        if (todos.length > 0) {
+            rowNumber = todos[todos.length - 1].rowNumber + 1;
+        } else {
+            rowNumber = 1;
         }
 
         const newTodo = {
-          rowNumber : rowNumber,
-          rowDescription : description,
-          rowAssigned : assigned
-      }
+            rowNumber: rowNumber,
+            rowDescription: description,
+            rowAssigned: assigned
+        }
         setTodos(todos => [...todos, newTodo])
     }
-    return(
+    return (
         <>
-        <div className='mt-5 container'>
-          <div className='card'>
-          <h1>Your Todo's</h1>
-            <table>
-              <thead>
-                <tr>
-                  <th scope='col'>#</th>
-                  <th scope='col'>Description</th>
-                  <th scope='col'>Assigned</th>
-                </tr>
-              </thead>
-              <tbody>
+            <div className='mt-5 container'>
+                <div className='card'>
+                    <h1>Your Todo's</h1>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope='col'>#</th>
+                            <th scope='col'>Description</th>
+                            <th scope='col'>Assigned</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                {
-                  todos.map(task => (
-                    <TodoRowItem
-                    key = {todos.rowNumber}
-                    rowNumber = {task.rowNumber}
-                    rowDescription = {task.rowDescription}
-                    rowAssigned = {task.rowAssigned}
-                    />
-                  ))
-                }
+                        {
+                            todos.map(task => (
+                                <TodoRowItem
+                                    key={todos.rowNumber}
+                                    rowNumber={task.rowNumber}
+                                    rowDescription={task.rowDescription}
+                                    rowAssigned={task.rowAssigned}
+                                />
+                            ))
+                        }
 
-                <AddTodo addTodo={addTodo}/>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                        <AddTodo addTodo={addTodo}/>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </>
     )
-  }
+}
 
 export default TodoTable;

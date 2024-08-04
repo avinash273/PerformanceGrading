@@ -4,13 +4,13 @@ import Students from './components/Students';
 import TodoTable from './training/TodoTable';
 
 function App() {
-  return (
-      < >
-        {/* <Students/> */}
-        <TodoTable />
-        
-      </>
-  );
+    return (
+        < >
+            {/* <Students/> */}
+            <TodoTable/>
+
+        </>
+    );
 }
 
 export default App;
