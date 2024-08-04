@@ -13,13 +13,12 @@ function Students() {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchData();
     }, []);
 
     return (
         <>
-            <h1>Students Data</h1>
+            <h1>Performance Grading</h1>
             <table>
                 <thead>
                 <tr>
