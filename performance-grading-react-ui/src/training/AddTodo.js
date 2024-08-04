@@ -45,7 +45,6 @@ function AddTodo(props) {
                 onClick={submitTodo}
                 >Add Todo
                 </button>
-                <p>avinash</p>
             </form>
         </div>
     )
