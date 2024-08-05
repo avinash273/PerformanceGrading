@@ -3,7 +3,7 @@ import './App.css';
 import Students from './components/Students';
 import TodoTable from './training/TodoTable';
 
-function App() {
+const App = () => {
     return (
         <div className="mt-5" >
             <Students/>

@@ -1,3 +1,9 @@
+create table students(
+                         id int primary key,
+                         name varchar(50),
+                         marks int
+);
+
 insert into students (id, name, marks) values (1, 'Alvan', 7);
 insert into students (id, name, marks) values (2, 'Ariel', 15);
 insert into students (id, name, marks) values (3, 'Antin', 4);
@@ -999,3 +1005,4 @@ insert into students (id, name, marks) values (998, 'Aldric', 85);
 insert into students (id, name, marks) values (999, 'Nyssa', 24);
 insert into students (id, name, marks) values (1000, 'Silas', 97);
 insert into students (id, name, marks) values (1000, 'Rames', 32);
+commit;
