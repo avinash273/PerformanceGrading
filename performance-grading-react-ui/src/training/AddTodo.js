@@ -24,7 +24,7 @@ function AddTodo(props) {
                     <input
                         type="text"
                         className="form-control"
-                        requried
+                        required
                         onChange={e => {
                             setAssigned(e.target.value)
                         }}

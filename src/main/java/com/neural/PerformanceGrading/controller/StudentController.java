@@ -22,10 +22,4 @@ public class StudentController {
         return studentService.getStudents();
     }
 
-    @PostMapping("/student/add-students/{id}")
-    public List<Student> getStudentService() {
-        return studentService.getStudents();
-    }
-
-
 }

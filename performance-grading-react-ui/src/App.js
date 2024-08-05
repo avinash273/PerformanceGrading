@@ -5,11 +5,11 @@ import TodoTable from './training/TodoTable';
 
 function App() {
     return (
-        < >
-            {/* <Students/> */}
+        <div className="mt-5" >
+            <Students/>
             <TodoTable/>
 
-        </>
+        </div>
     );
 }
 
